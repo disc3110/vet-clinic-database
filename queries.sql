@@ -38,16 +38,9 @@ AND 17.3;
 
 /* update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that species columns went back to the state before tranasction. */
  BEGIN;
-
- ALTER TABLE
- animals
- DROP COLUMN species;
-
- SELECT * FROM animals;
-
+ UPDATE animals SET species = 'unspecified';
  ROLLBACK;
-
- SELECT * FROM animals; 
+ SELECT * FROM animals;
 
  /* Update the animals table by setting the species column to digimon for all animals that have a name ending in mon or pokemon the others */
  BEGIN;
